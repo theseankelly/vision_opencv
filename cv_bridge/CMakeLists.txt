@@ -12,7 +12,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra)
 endif()
 
-if(NOT ANDROID)
+if(NOT ANDROID AND NOT CMAKE_CROSSCOMPILING)
   find_package(PythonLibs)
   if(PYTHONLIBS_VERSION_STRING VERSION_LESS 3)
     find_package(Boost REQUIRED python)
@@ -47,7 +47,7 @@ find_package(OpenCV 3 REQUIRED
 
 include_directories(include ${Boost_INCLUDE_DIRS})
 
-if(NOT ANDROID)
+if(NOT ANDROID AND NOT CMAKE_CROSSCOMPILING)
   add_subdirectory(python)
 endif()
 

@@ -15,7 +15,7 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}_export.h
   DESTINATION include/${PROJECT_NAME})
 
-if(NOT ANDROID)
+if(NOT ANDROID AND NOT CMAKE_CROSSCOMPILING)
 # add a Boost Python library
 find_package(PythonInterp REQUIRED)
 find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}")
