@@ -8,7 +8,7 @@ target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${OpenCV_LIBRARIES})
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 
-if(NOT ANDROID)
+if(NOT ANDROID AND NOT CMAKE_CROSSCOMPILING)
 # add a Boost Python library
 find_package(PythonInterp REQUIRED)
 find_package(PythonLibs "${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}")
